@@ -12,7 +12,7 @@ export const AuthContextProvider = ({ children }) => {
   //Login function
   const login = async (inputs) => {
     const res = await axios.post(
-      'https://moodytunes-api.onrender.com/auth/login',
+      'https://moodytunes-api.onrender.com/api/auth/login',
       inputs
     );
     setCurrentUser(res.data);
