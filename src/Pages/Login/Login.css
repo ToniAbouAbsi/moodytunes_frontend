@@ -2,6 +2,10 @@ form {
   color: var(--primary-text);
 }
 
+.link {
+  color: orange !important;
+}
+
 input {
   margin: 2rem 0;
   background: transparent !important;
@@ -16,6 +20,7 @@ input {
 .input2 {
   border-bottom: 1px solid var(--primary-text) !important;
 }
+
 ::placeholder {
   color: var(--primary-text) !important;
 }

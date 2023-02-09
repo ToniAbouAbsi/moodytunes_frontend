@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/authContext';
 import axios from 'axios';
+import './Register.css';
 
 const Register = () => {
   //Register Inputs
@@ -168,12 +169,15 @@ const Register = () => {
           {/* already registered */}
           {viewportWidth < 767 ? (
             <p className='forgot-password text-center'>
-              Already registered? <Link to='/login'>Sign In</Link>
+              Already registered?{' '}
+              <Link to='/login' className='link'>
+                Sign In
+              </Link>
             </p>
           ) : (
             <p className='forgot-password text-right'>
               Already registered?{' '}
-              <Link to='/login' style={{ color: 'orange' }}>
+              <Link to='/login' className='link' style={{ color: 'orange' }}>
                 Sign In
               </Link>
             </p>

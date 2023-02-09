@@ -99,7 +99,7 @@ const Login = () => {
           {/* Don't have an account */}
           <p className='forgot-password text-right'>
             Don't have an account?{' '}
-            <Link to='/register' style={{ color: 'orange' }}>
+            <Link to='/register' className='link' style={{ color: 'orange' }}>
               Sign Up
             </Link>
           </p>
