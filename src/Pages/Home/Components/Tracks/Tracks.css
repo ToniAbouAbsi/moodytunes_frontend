@@ -1,0 +1,39 @@
+.tracks {
+  height: auto;
+  background-color: var(--mainColor);
+  padding-top: 25px;
+}
+
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.all-cards {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-deck .card {
+  width: 300px;
+  height: 400px;
+  margin-right: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.audio {
+  bottom: 0;
+}
+
+@media (max-width: 576px) {
+  .card-deck .card {
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .card-deck .card {
+    width: 50%;
+  }
+}

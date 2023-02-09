@@ -1,0 +1,33 @@
+.Single {
+  margin: 15px;
+  background-color: var(--mainColor);
+  padding: 20px;
+  border: 2px solid var(--secondaryColor);
+  color: var(--textColor);
+  transition: transform 0.3s ease-in-out;
+}
+
+.Single-Card-Img {
+  height: 150px;
+}
+
+.Single:hover {
+  transform: scale(1.02);
+}
+.Single-Card-Body {
+  border-bottom: 2px solid var(--secondaryColor);
+}
+
+.Single-Card-Title {
+  color: var(--secondaryColor);
+}
+
+.Single-Card-Footer {
+  /* background-color: var(--mainColor); */
+}
+
+audio {
+  padding: 10px;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+}

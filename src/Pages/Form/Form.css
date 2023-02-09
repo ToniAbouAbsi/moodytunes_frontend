@@ -1,0 +1,27 @@
+:root {
+  --primary-text: #e4e3e3;
+  --red: red;
+}
+
+.form {
+  color: var(--primary-text);
+}
+
+select {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  text-align: center;
+  border: 1px solid orange !important;
+  color: var(--primary-text) !important;
+}
+
+.btn {
+  transition: all 0.3s ease-in-out;
+  background-color: var(--secondaryColor);
+  color: var(--textColor);
+}
+
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.562);
+  color: var(--secondaryColor);
+  border: 1px solid var(--secondaryColor);
+}
