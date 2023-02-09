@@ -12,7 +12,7 @@ export const AuthContextProvider = ({ children }) => {
   //Login function
   const login = async (inputs) => {
     const res = await axios.post(
-      'http://localhost:8800/api/auth/login',
+      'https://moodytunes-api.onrender.com/auth/login',
       inputs
     );
     setCurrentUser(res.data);
@@ -21,7 +21,10 @@ export const AuthContextProvider = ({ children }) => {
   //Update function
   const update = async (input) => {
     console.log(input);
-    const res = await axios.get('http://localhost:8800/api/auth/update', input);
+    const res = await axios.get(
+      'https://moodytunes-api.onrender.com/api/auth/update',
+      input
+    );
     console.log(res);
     setCurrentUser(res.data);
   };

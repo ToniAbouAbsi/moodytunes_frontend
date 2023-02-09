@@ -53,9 +53,15 @@ const Form = () => {
     e.preventDefault();
     try {
       if (currentUser !== null) {
-        await axios.get('http://localhost:8800/api/auth/update', input);
+        await axios.get(
+          'https://moodytunes-api.onrender.com/api/auth/update',
+          input
+        );
       }
-      await axios.put('http://localhost:8800/api/auth/addemotions', inputs);
+      await axios.put(
+        'https://moodytunes-api.onrender.com/api/auth/addemotions',
+        inputs
+      );
       navigate('/login');
     } catch (err) {
       setErr(err);

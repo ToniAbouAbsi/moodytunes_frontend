@@ -58,7 +58,10 @@ const Register = () => {
         inputs.username !== '' &&
         inputs.password !== ''
       ) {
-        await axios.post('http://localhost:8800/api/auth/register', inputs);
+        await axios.post(
+          'https://moodytunes-api.onrender.com/api/auth/register',
+          inputs
+        );
         navigate('/form');
       } else if (
         inputs.name === '' ||
