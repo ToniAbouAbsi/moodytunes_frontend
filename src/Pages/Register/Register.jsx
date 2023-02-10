@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/authContext';
 import axios from 'axios';
 import './Register.css';
+import Spinner from '../Spinner/Spinner';
 
 const Register = () => {
   //Register Inputs
@@ -16,6 +17,7 @@ const Register = () => {
   const [err, setErr] = useState(null);
   const [empty, setEmpty] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { currentUser, setUserName } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -50,6 +52,7 @@ const Register = () => {
   //Handle Register
   const handleClick = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     setIsSubmitted(true);
 
     try {
@@ -63,6 +66,7 @@ const Register = () => {
           'https://moodytunes-api.onrender.com/api/auth/register',
           inputs
         );
+        setIsLoading(false);
         navigate('/form');
       } else if (
         inputs.name === '' ||
@@ -70,9 +74,11 @@ const Register = () => {
         inputs.username === '' ||
         inputs.password === ''
       ) {
+        setIsLoading(false);
         setEmpty('All fields are required!');
       }
     } catch (err) {
+      setIsLoading(false);
       setErr(err.response.data);
     }
   };
@@ -84,6 +90,7 @@ const Register = () => {
 
   return (
     <div className='auth-wrapper'>
+      {isLoading && <Spinner />}
       <div className='auth-inner'>
         <form>
           <h3>Sign Up</h3>

@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../../style.css';
 import './Form.css';
 import { useNavigate } from 'react-router-dom';
+import Spinner from '../Spinner/Spinner';
 
 const Form = () => {
   //Use state
@@ -12,6 +13,7 @@ const Form = () => {
   const [currentUsername, setCurrentUsername] = useState('');
   const [err, setErr] = useState();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   //setting username
   useEffect(() => {
@@ -51,6 +53,7 @@ const Form = () => {
   //Handle Click add emotions: submits the user's choices to the db
   const handleClick = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       if (currentUser !== null) {
         await axios.get(
@@ -65,6 +68,8 @@ const Form = () => {
       navigate('/login');
     } catch (err) {
       setErr(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -74,6 +79,7 @@ const Form = () => {
   };
   return (
     <div className='auth-wrapper'>
+      {loading && <Spinner />}
       <div className='auth-inner'>
         <div className='form'>
           <div>

@@ -135,7 +135,7 @@ const Prediction = () => {
         <div className='left-prediction'>
           {webcamOpen ? (
             <div className='content'>
-              <h2 className='mb-2 white'>Take a snapshot</h2>
+              <h2 className='mb-2 white snapshot'>Take a snapshot</h2>
               {picture !== '' ? (
                 <div>
                   <button
@@ -207,7 +207,7 @@ const Prediction = () => {
                       e.preventDefault();
                       capture();
                     }}
-                    className='btn'
+                    className='btn capture1'
                   >
                     Capture
                   </button>

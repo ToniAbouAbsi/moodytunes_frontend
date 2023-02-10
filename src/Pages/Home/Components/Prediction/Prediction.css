@@ -18,6 +18,7 @@
 .orange {
   color: var(--secondaryColor);
 }
+
 .left-prediction {
   display: flex;
   flex-direction: column;
@@ -97,12 +98,16 @@
   width: 8rem !important;
 }
 
+
+/* Mobile view */
 @media (max-width: 768px) {
+
   .prediction {
     flex-direction: column;
     padding: 0;
     height: auto;
   }
+
   .right-prediction {
     justify-content: center;
     align-items: center;
@@ -110,6 +115,7 @@
     margin: 0;
     width: 90%;
   }
+
   .left-prediction {
     width: 90%;
     height: auto;
@@ -119,6 +125,7 @@
     font-weight: 200;
   }
 }
+
 @media (max-height: 1400px) and (max-width: 1000px) {
   .prediction {
     min-height: auto;

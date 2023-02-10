@@ -6,6 +6,7 @@ import './Contact.css';
 const Contact = () => {
   const form = useRef();
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   //user cannot send empty email or without providing a name
   const sendEmail = (e) => {
@@ -33,6 +34,8 @@ const Contact = () => {
       .then(
         (result) => {
           console.log('Message Sent');
+          setSuccessMessage('Thank you for your feedback!');
+          setTimeout(() => setSuccessMessage(''), 3000);
           e.target.reset();
         },
         (error) => {
@@ -50,6 +53,9 @@ const Contact = () => {
           <input type='email' name='user_email' placeholder='Email' />
           <textarea name='message' placeholder='Message' />
           {errorMessage && <div className='error'>{errorMessage}</div>}
+          {successMessage && (
+            <div style={{ color: 'green' }}>{successMessage}</div>
+          )}
 
           <input type='submit' value='Send' />
         </form>

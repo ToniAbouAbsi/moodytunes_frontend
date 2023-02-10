@@ -2,6 +2,8 @@ import { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/authContext';
 import './Login.css';
+import Spinner from '../Spinner/Spinner';
+
 const Login = () => {
   //Login Inputs
   const [inputs, setInputs] = useState({
@@ -11,6 +13,7 @@ const Login = () => {
   const [empty, setEmpty] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [err, setErr] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const { currentUser, login } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -26,17 +29,22 @@ const Login = () => {
   //Handle Login
   const handleLogin = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     setIsSubmitted(true);
 
     try {
       if (inputs.username !== '' && inputs.password !== '') {
         await login(inputs);
+        setIsLoading(false);
         navigate('/');
+        setIsSubmitted(false);
       } else if (inputs.username === '' || inputs.password === '') {
         setEmpty('All fields are required!');
+        setIsLoading(false);
       }
     } catch (err) {
       setErr(err.response.data);
+      setIsLoading(false);
       console.log(err);
     }
   };
@@ -48,6 +56,7 @@ const Login = () => {
 
   return (
     <div className='auth-wrapper'>
+      {isSubmitted && isLoading && <Spinner />}
       <div className='auth-inner'>
         <form>
           <h3> Sign In</h3>
