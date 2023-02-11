@@ -17,7 +17,8 @@ const Contact = () => {
     const messageInput = form.current.elements.message;
 
     if (!nameInput.value || !emailInput.value || !messageInput.value) {
-      setErrorMessage('All fields are required!!');
+      setErrorMessage('All fields are required!');
+      setTimeout(() => setErrorMessage(''), 3000);
       return;
     }
 
@@ -26,10 +27,10 @@ const Contact = () => {
     //configuration of emailjs
     emailjs
       .sendForm(
-        'service_wdl9l87',
-        'template_gncz55l',
+        'service_6s8rrsc',
+        'template_3g6q13j',
         form.current,
-        'LNaNrwvt68aTE76Jk'
+        'w5RMHAS865JKKkpT5'
       )
       .then(
         (result) => {
@@ -53,22 +54,21 @@ const Contact = () => {
           <input type='email' name='user_email' placeholder='Email' />
           <textarea name='message' placeholder='Message' />
           {errorMessage && <div className='error'>{errorMessage}</div>}
-          {successMessage && (
-            <div style={{ color: 'green' }}>{successMessage}</div>
-          )}
+          {successMessage && <div className='success'>{successMessage}</div>}
 
-          <input type='submit' value='Send' />
+          <input type='submit' value='Send' className='send-btn' />
         </form>
       </div>
+
       <div className='right'>
         <p>
-          <a href='tel:+96170581697'>
-            <MdPhone className='icon' /> +961 70 581 697
+          <a href='tel:+96176887508'>
+            <MdPhone className='icon' /> +961 76 88 75 08
           </a>
         </p>
         <p>
-          <a href='mailto:yfh001@live.aul.edu.lb'>
-            <MdOutlineMail className='icon' /> yfh001@live.aul.edu.lb{' '}
+          <a href='mailto:toniabouabsi000@gmail.com'>
+            <MdOutlineMail className='icon' /> toniabouabsi000@gmail.com{' '}
           </a>
         </p>
       </div>
